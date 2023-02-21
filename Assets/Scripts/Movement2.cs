@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement2 : MonoBehaviour
 {
     public float horizontalMove;
     public float verticalMove;
@@ -21,31 +21,31 @@ public class Movement : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             horizontalMove = Input.GetAxis("Horizontal");
-            rb.velocity = new Vector2(horizontalMove * flareSpeed, 0/*rb.velocity.y*/);
+            rb.velocity = new Vector2(horizontalMove * flareSpeed, verticalMove * flareSpeed/*rb.velocity.y*/);
             timer = 0.5f;
             Debug.Log("moving left?"); //register left!
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             horizontalMove = Input.GetAxis("Horizontal");
-            rb.velocity = new Vector2(horizontalMove * flareSpeed, 0/*rb.velocity.y*/);
+            rb.velocity = new Vector2(horizontalMove * flareSpeed, verticalMove * flareSpeed/*rb.velocity.y*/);
             timer = 0.5f;
             Debug.Log("moving right?"); //register left!
         }
-        else if (Input.GetKey(KeyCode.W))
+        else if (Input.GetKey(KeyCode.UpArrow)) //TO BE CHANGED//
         {
             verticalMove = Input.GetAxis("Vertical");
-            rb.velocity = new Vector2(0, verticalMove * flareSpeed);
+            rb.velocity = new Vector2(horizontalMove * flareSpeed, verticalMove * flareSpeed);
             timer = 0.5f;
             Debug.Log("moving up?"); //register left!
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.DownArrow)) //TO BE CHANGED//
         {
             verticalMove = Input.GetAxis("Vertical");
-            rb.velocity = new Vector2(0, verticalMove * flareSpeed);
+            rb.velocity = new Vector2(horizontalMove * flareSpeed, verticalMove * flareSpeed);
             timer = 0.5f;
             Debug.Log("moving down?"); //register left!
         }
