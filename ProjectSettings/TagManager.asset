@@ -3,18 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player 1
+  - Player 2
+  - Base Enemy
+  - Key
+  - Gate
+  - Goal Zone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Users and Enemies
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Interactible
+  - Dangerous
+  - Ground Floor
+  - Wall
   - 
   - 
   - 
