@@ -69,4 +69,17 @@ public class Movement : MonoBehaviour
 
         //TurnAroundBee(); not important atm
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Gate gate = collision.GetComponent<Gate>(); //calls Gate script
+        //if (gate != null)
+        //{
+        //    gate.DoorOpened();
+        //}
+
+        horizontalMove = 0; //stop moving.
+        verticalMove = 0; //stop moving.
+        rb.velocity = new Vector2(horizontalMove * flareSpeed, verticalMove * flareSpeed); //should be = to 0,0
+    }
 }
