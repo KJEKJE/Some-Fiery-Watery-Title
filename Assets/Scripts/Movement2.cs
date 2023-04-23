@@ -52,7 +52,7 @@ public class Movement2 : MonoBehaviour
             verticalMove = Input.GetAxis("Vertical");
             //rb.velocity = new Vector2(horizontalMove * waterformSpeed, verticalMove * waterformSpeed);
             isJumping = true;
-            yVel = 25f; //sets the height that it'll change by
+            yVel = 5f; //sets the height that it'll change by
             timer = 0.5f;
             rb.velocity = new Vector2(horizontalMove * waterformSpeed, yVel); //boing.
             Debug.Log("pressed jump."); //register left!
