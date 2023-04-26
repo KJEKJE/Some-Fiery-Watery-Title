@@ -10,6 +10,7 @@ public class Droplet : MonoBehaviour
 
     void Start()
     {
+        //dropletSpeed = GetComponent<ShootFireball>;
         rb.velocity = transform.right * dropletSpeed; //temporary
     }
 

@@ -7,6 +7,7 @@ public class ShootFireball : MonoBehaviour
     public Rigidbody2D rb;
     public Transform projectileSpawn;
     public GameObject projectile;
+    public GameObject projectile2;
     public int projectileID;
     public float launchSpeed = 0f;
     public float xSin;
@@ -33,14 +34,15 @@ public class ShootFireball : MonoBehaviour
         if (Input.GetKey(KeyCode.X)) //charges fireball
         {
             //while space is down, count time held and build up multiplier
-            chargeTime = chargeTime + Time.deltaTime;
+            chargeTime = chargeTime + Time.deltaTime; 
+            projectileID = 1; //fireball
             //chargeTime++;
         }
 
         if (Input.GetKeyUp(KeyCode.X)) 
         {
             Debug.Log("Power timer: " + chargeTime); //calculates fireball
-            
+                        
             if (chargeTime <= 0.6f)
             {
                 multiplier = 1f; //small
@@ -60,8 +62,9 @@ public class ShootFireball : MonoBehaviour
 
             //when let go, deduce multiplier
             Pew(projectileID); //releases fireball
-            chargeTime = 0;            
-            
+            chargeTime = 0;
+            projectileID = 0;
+
         }
 
         //droplet//
@@ -69,6 +72,7 @@ public class ShootFireball : MonoBehaviour
         {
             //while space is down, count time held and build up multiplier
             chargeTime = chargeTime + Time.deltaTime;
+            projectileID = 2; //droplet
             //chargeTime++;
         }
 
@@ -96,6 +100,7 @@ public class ShootFireball : MonoBehaviour
             //when let go, deduce multiplier
             Pew(projectileID); //releases droplet
             chargeTime = 0;
+            projectileID = 0;
 
         }
 
@@ -103,13 +108,37 @@ public class ShootFireball : MonoBehaviour
 
     void Pew(int projID)
     {
-        Debug.Log("Multiplier: " + multiplier);
-        projectile.transform.localScale *= multiplier; //changes fireball size
-        Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
-        projectile.transform.localScale /= multiplier; //resets it back to orignal size
+        switch (projID)
+        {
+            case 1:
+                Debug.Log("fireball.");
+
+                Debug.Log("Multiplier: " + multiplier);
+                projectile.transform.localScale *= multiplier; //changes fireball size
+                Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+                projectile.transform.localScale /= multiplier; //resets it back to orignal size
 
 
-        rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
+                //rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
+
+                break;
+            
+            case 2:
+                Debug.Log("droplet.");
+
+                Debug.Log("Multiplier: " + multiplier);
+                float aquaDist = launchSpeed * multiplier;
+                Debug.Log(aquaDist); //confirm pew
+                //projectile.transform.localScale *= multiplier; //changes fireball size
+                Instantiate(projectile2, projectileSpawn.position, projectileSpawn.rotation);
+                //projectile.transform.localScale /= multiplier; //resets it back to orignal size
+
+
+                //projectile2.transform.position = new Vector2(aquaDist, 0); //temporary launch
+
+                break;
+        }
+
     }
        
 }
