@@ -33,7 +33,7 @@ public class AquaKey : MonoBehaviour
         Debug.Log(collision.name); //what did you hit?
         
 
-        Movement2 aquais = collision.GetComponent<Movement2>(); //calls Gate script
+        MovementWaterform aquais = collision.GetComponent<MovementWaterform>(); //calls Gate script
         if (aquais != null) //i.e. touching player2
         {
             Debug.Log("Key has been collected.");

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class MovementFlare : MonoBehaviour
 {
     public float horizontalMove;
     public float verticalMove;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement2 : MonoBehaviour
+public class MovementWaterform : MonoBehaviour
 {
     public float horizontalMove;
     public float verticalMove;

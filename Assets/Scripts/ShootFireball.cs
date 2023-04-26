@@ -7,6 +7,7 @@ public class ShootFireball : MonoBehaviour
     public Rigidbody2D rb;
     public Transform projectileSpawn;
     public GameObject projectile;
+    public int projectileID;
     public float launchSpeed = 0f;
     public float xSin;
     public float ySin; //sohcahtoa at some point
@@ -22,19 +23,21 @@ public class ShootFireball : MonoBehaviour
         dir = projectileSpawn.rotation.z; //for later?
         Debug.Log("Direction of projectile is: " + dir);
         chargeTime = 0;
+        projectileID = 1; //i.e. fireball
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) //charges fireball
+        //fireball//        
+        if (Input.GetKey(KeyCode.X)) //charges fireball
         {
             //while space is down, count time held and build up multiplier
             chargeTime = chargeTime + Time.deltaTime;
             //chargeTime++;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space)) 
+        if (Input.GetKeyUp(KeyCode.X)) 
         {
             Debug.Log("Power timer: " + chargeTime); //calculates fireball
             
@@ -56,13 +59,49 @@ public class ShootFireball : MonoBehaviour
             }
 
             //when let go, deduce multiplier
-            Pew(); //releases fireball
+            Pew(projectileID); //releases fireball
             chargeTime = 0;            
             
         }
+
+        //droplet//
+        if (Input.GetKey(KeyCode.Space)) //charges droplet
+        {
+            //while space is down, count time held and build up multiplier
+            chargeTime = chargeTime + Time.deltaTime;
+            //chargeTime++;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("Power timer: " + chargeTime); //calculates droplet
+
+            if (chargeTime <= 0.6f)
+            {
+                multiplier = 1f; //short
+            }
+            else if (chargeTime > 0.6f && chargeTime <= 1.0f)
+            {
+                multiplier = 2f; //medium
+            }
+            else if (chargeTime > 1f && chargeTime <= 1.5f)
+            {
+                multiplier = 3f; //far
+            }
+            else
+            {
+                multiplier = 4f; //very far
+            }
+
+            //when let go, deduce multiplier
+            Pew(projectileID); //releases droplet
+            chargeTime = 0;
+
+        }
+
     }
 
-    void Pew()
+    void Pew(int projID)
     {
         Debug.Log("Multiplier: " + multiplier);
         projectile.transform.localScale *= multiplier; //changes fireball size
