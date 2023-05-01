@@ -391,7 +391,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 777056974}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &758147328
 GameObject:
@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 777056973}
   - component: {fileID: 777056972}
   - component: {fileID: 777056971}
+  - component: {fileID: 777056976}
   - component: {fileID: 777056975}
   m_Layer: 3
   m_Name: Waterform
@@ -601,6 +602,7 @@ Transform:
   m_Children:
   - {fileID: 28969621}
   - {fileID: 758147329}
+  - {fileID: 1951373851}
   - {fileID: 667068545}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -621,6 +623,29 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &777056976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777056970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199447a49bb4c5e439a279b650b30688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 777056972}
+  projectileSpawn: {fileID: 1951373851}
+  projectile: {fileID: 0}
+  projectile2: {fileID: 6189948010241532670, guid: b3442798b3df3f949900bfb01876c017, type: 3}
+  projectileID: 0
+  launchSpeed: 0
+  xSin: 0
+  ySin: 0
+  dir: 0
+  chargeTime: 0
+  multiplier: 0
 --- !u!1 &973389767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3774,7 +3799,7 @@ MonoBehaviour:
   rb: {fileID: 1827603638}
   projectileSpawn: {fileID: 183782098}
   projectile: {fileID: 3266957990212999136, guid: 794410d6b1b48d240b9655f546f613dc, type: 3}
-  projectile2: {fileID: 6189948010241532670, guid: b3442798b3df3f949900bfb01876c017, type: 3}
+  projectile2: {fileID: 0}
   projectileID: 0
   launchSpeed: 0
   xSin: 0
@@ -3798,3 +3823,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &1951373850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951373851}
+  m_Layer: 3
+  m_Name: AquaSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951373851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951373850}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.7}
+  m_Children: []
+  m_Father: {fileID: 777056974}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

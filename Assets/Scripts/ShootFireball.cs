@@ -6,6 +6,7 @@ public class ShootFireball : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform projectileSpawn;
+    //public Transform projectileSpawn2;
     public GameObject projectile;
     public GameObject projectile2;
     public int projectileID;
@@ -22,6 +23,7 @@ public class ShootFireball : MonoBehaviour
     {
         launchSpeed = 5f; //initial launch speed
         dir = projectileSpawn.rotation.z; //for later?
+        //dir = projectileSpawn2.rotation.z; //for later?
         Debug.Log("Direction of projectile is: " + dir);
         chargeTime = 0;
         projectileID = 1; //i.e. fireball
@@ -136,6 +138,9 @@ public class ShootFireball : MonoBehaviour
 
                 //projectile2.transform.position = new Vector2(aquaDist, 0); //temporary launch
 
+                break;
+
+            default:
                 break;
         }
 
