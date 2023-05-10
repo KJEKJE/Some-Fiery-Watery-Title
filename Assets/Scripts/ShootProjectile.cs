@@ -33,7 +33,7 @@ public class ShootProjectile : MonoBehaviour
     void Update()
     {
         //fireball//        
-        if (Input.GetKey(KeyCode.X)) //charges fireball
+        if (Input.GetKey(KeyCode.X) || Input.GetMouseButton(0)) //charges fireball
         {
             if (projectile != null) //is a fireball on this character?
             {
@@ -49,7 +49,7 @@ public class ShootProjectile : MonoBehaviour
             
         }
 
-        if (Input.GetKeyUp(KeyCode.X)) 
+        if (Input.GetKeyUp(KeyCode.X) || Input.GetMouseButtonUp(0)) 
         {
             Debug.Log("Power timer: " + chargeTime); //calculates fireball
                         
