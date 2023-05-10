@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class HealthScript : MonoBehaviour
 {
-    public float playerHealth;
+    public GameObject player;
+    public float playerHealth = 15f;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth = 15f; //set it to a base 15 for now
+        
+        //playerHealth = 15f; //set it to a base 15 for now
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class HealthScript : MonoBehaviour
 
     private void TakeDamage(int ouch)
     {
+        //identify who's health it is?
         Debug.Log("Took " + ouch + " damage.");
         playerHealth = playerHealth +- ouch;
         Debug.Log("Player now has " + playerHealth + " HP left.");

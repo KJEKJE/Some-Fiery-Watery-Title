@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootFireball : MonoBehaviour
+public class ShootProjectile : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform projectileSpawn;
     //public Transform projectileSpawn2;
-    public GameObject projectile;
-    public GameObject projectile2;
+    public GameObject projectile; //fireball
+    public GameObject projectile2; //droplet
     public int projectileID;
     public float launchSpeed = 0f;
     public float xSin;
@@ -35,10 +35,18 @@ public class ShootFireball : MonoBehaviour
         //fireball//        
         if (Input.GetKey(KeyCode.X)) //charges fireball
         {
-            //while space is down, count time held and build up multiplier
-            chargeTime = chargeTime + Time.deltaTime; 
-            projectileID = 1; //fireball
-            //chargeTime++;
+            if (projectile != null) //is a fireball on this character?
+            {
+                //while space is down, count time held and build up multiplier
+                chargeTime = chargeTime + Time.deltaTime;
+                projectileID = 1; //fireball
+                //chargeTime++;
+            }
+            else
+            {
+                Debug.Log("Passed ok. It's Flare's move ^^");
+            }
+            
         }
 
         if (Input.GetKeyUp(KeyCode.X)) 
@@ -72,10 +80,18 @@ public class ShootFireball : MonoBehaviour
         //droplet//
         if (Input.GetKey(KeyCode.Space)) //charges droplet
         {
-            //while space is down, count time held and build up multiplier
-            chargeTime = chargeTime + Time.deltaTime;
-            projectileID = 2; //droplet
-            //chargeTime++;
+            if (projectile2 != null) //if an item is present in this slot
+            {
+                //while space is down, count time held and build up multiplier
+                chargeTime = chargeTime + Time.deltaTime;
+                projectileID = 2; //droplet
+                //chargeTime++;
+            }
+            else
+            {
+                Debug.Log("Passed ok. It's Waterform's move ^^");
+            }
+            
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
@@ -110,39 +126,44 @@ public class ShootFireball : MonoBehaviour
 
     void Pew(int projID)
     {
-        switch (projID)
-        {
-            case 1:
-                Debug.Log("fireball.");
+        //CHECK
+        //how to pass through the fact that there's no item there?
 
-                Debug.Log("Multiplier: " + multiplier);
-                projectile.transform.localScale *= multiplier; //changes fireball size
-                Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
-                projectile.transform.localScale /= multiplier; //resets it back to orignal size
+            switch (projID)
+            {
+                case 1:
+                    Debug.Log("fireball.");
 
-
-                //rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
-
-                break;
-            
-            case 2:
-                Debug.Log("droplet.");
-
-                Debug.Log("Multiplier: " + multiplier);
-                float aquaDist = launchSpeed * multiplier;
-                Debug.Log(aquaDist); //confirm pew
-                //projectile.transform.localScale *= multiplier; //changes fireball size
-                Instantiate(projectile2, projectileSpawn.position, projectileSpawn.rotation);
-                //projectile.transform.localScale /= multiplier; //resets it back to orignal size
+                    Debug.Log("Multiplier: " + multiplier);
+                    projectile.transform.localScale *= multiplier; //changes fireball size
+                    Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+                    projectile.transform.localScale /= multiplier; //resets it back to orignal size
 
 
-                //projectile2.transform.position = new Vector2(aquaDist, 0); //temporary launch
+                    //rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
 
-                break;
+                    break;
 
-            default:
-                break;
-        }
+                case 2:
+                    Debug.Log("droplet.");
+
+                    Debug.Log("Multiplier: " + multiplier);
+                    float aquaDist = launchSpeed * multiplier;
+                    Debug.Log(aquaDist); //confirm pew
+                                         //projectile.transform.localScale *= multiplier; //changes fireball size
+                    Instantiate(projectile2, projectileSpawn.position, projectileSpawn.rotation);
+                    //projectile.transform.localScale /= multiplier; //resets it back to orignal size
+
+
+                    //projectile2.transform.position = new Vector2(aquaDist, 0); //temporary launch
+
+                    break;
+
+                default:
+                    break;
+            }
+        
+        
 
     }
        
