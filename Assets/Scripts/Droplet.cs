@@ -8,6 +8,7 @@ public class Droplet : MonoBehaviour
     //public bool isOpen = false;
     public Rigidbody2D rb;
     public string elemType = "water";
+    public string statusEffect = "stun";
 
     void Start()
     {

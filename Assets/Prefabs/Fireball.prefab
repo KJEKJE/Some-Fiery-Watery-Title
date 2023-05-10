@@ -138,3 +138,6 @@ MonoBehaviour:
   isOpen: 0
   rb: {fileID: 6248302821152570018}
   elemType: fire
+  statusEffect: burn
+  chargeLevel: 0
+  chargeRef: {fileID: 0}
