@@ -7,10 +7,12 @@ public class Fireball : MonoBehaviour
     public float fireballSpeed = 10f;
     public bool isOpen = false;
     public Rigidbody2D rb;
+    public string elemType = "fire";
+
 
     void Start()
     {
-        rb.velocity = transform.right * fireballSpeed; //temporary
+        rb.velocity = transform.right * fireballSpeed; //temporary?
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

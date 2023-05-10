@@ -32,7 +32,7 @@ public class HealthScript : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int ouch)
+    public void TakeDamage(int ouch)
     {
         //identify who's health it is?
         Debug.Log("Took " + ouch + " damage.");

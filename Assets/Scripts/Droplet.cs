@@ -7,6 +7,7 @@ public class Droplet : MonoBehaviour
     public float dropletSpeed = 15f;
     //public bool isOpen = false;
     public Rigidbody2D rb;
+    public string elemType = "water";
 
     void Start()
     {
@@ -18,10 +19,10 @@ public class Droplet : MonoBehaviour
     {
         Debug.Log(collision.name); //what did you hit?
 
-        MovementFlare flareBoi = collision.GetComponent<MovementFlare>(); //calls Gate script
+        HealthScript flareBoi = collision.GetComponent<HealthScript>(); //calls Gate script
         if (flareBoi != null)
         {
-            //flareBoi.TakeDamage();
+            flareBoi.TakeDamage(2);
             Debug.Log("Flare took damage?");
         }
 

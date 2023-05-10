@@ -26,7 +26,7 @@ public class ShootProjectile : MonoBehaviour
         //dir = projectileSpawn2.rotation.z; //for later?
         Debug.Log("Direction of projectile is: " + dir);
         chargeTime = 0;
-        projectileID = 1; //i.e. fireball
+        projectileID = 0; //i.e. fireball
     }
 
     // Update is called once per frame
@@ -135,13 +135,14 @@ public class ShootProjectile : MonoBehaviour
                     Debug.Log("fireball.");
 
                     Debug.Log("Multiplier: " + multiplier);
+
+                    
                     projectile.transform.localScale *= multiplier; //changes fireball size
                     Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
                     projectile.transform.localScale /= multiplier; //resets it back to orignal size
 
-
                     //rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
-
+                    
                     break;
 
                 case 2:

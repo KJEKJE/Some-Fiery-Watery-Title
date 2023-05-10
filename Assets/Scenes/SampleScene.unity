@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 777056971}
   - component: {fileID: 777056976}
   - component: {fileID: 777056975}
+  - component: {fileID: 777056977}
   m_Layer: 3
   m_Name: Waterform
   m_TagString: Player 2
@@ -646,6 +647,20 @@ MonoBehaviour:
   dir: 0
   chargeTime: 0
   multiplier: 0
+--- !u!114 &777056977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777056970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7170ce8c9b4938c4f91c1bb105aa78c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 777056970}
+  playerHealth: 15
 --- !u!1 &973389767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,6 +3685,7 @@ GameObject:
   - component: {fileID: 1827603637}
   - component: {fileID: 1827603641}
   - component: {fileID: 1827603642}
+  - component: {fileID: 1827603643}
   m_Layer: 3
   m_Name: Flare
   m_TagString: Player 1
@@ -3823,6 +3839,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1827603643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827603636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7170ce8c9b4938c4f91c1bb105aa78c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1827603636}
+  playerHealth: 15
 --- !u!1 &1951373850
 GameObject:
   m_ObjectHideFlags: 0

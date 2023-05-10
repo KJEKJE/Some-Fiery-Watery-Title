@@ -137,3 +137,4 @@ MonoBehaviour:
   fireballSpeed: 5
   isOpen: 0
   rb: {fileID: 6248302821152570018}
+  elemType: fire
