@@ -6,6 +6,7 @@ public class HealthScript : MonoBehaviour
 {
     public GameObject player;
     public float playerHealth = 15f;
+    [SerializeField] private GameManager game;
     
     
     // Start is called before the first frame update
@@ -37,6 +38,20 @@ public class HealthScript : MonoBehaviour
         //identify who's health it is?
         Debug.Log("Took " + ouch + " damage.");
         playerHealth = playerHealth +- ouch;
-        Debug.Log("Player now has " + playerHealth + " HP left.");
+
+        if (playerHealth <= 0) //HP is reduced to 0
+        {
+            Debug.Log("Player now has " + playerHealth + " HP left.");
+            playerHealth = 0; //sets to 0, is considered ded
+            Debug.Log("Player is defeated. " + playerHealth + " HP.");
+            game.DeathChecker(); //checking for death
+        }
+        else
+        {
+            Debug.Log("Player now has " + playerHealth + " HP left.");
+        }        
+        
     }
+
+
 }

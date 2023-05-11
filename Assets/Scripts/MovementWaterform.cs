@@ -8,7 +8,7 @@ public class MovementWaterform : MonoBehaviour
     public float verticalMove;
     public float waterformSpeed = 0f;
     public float timer;
-    private float maxTimer = 1f;
+    //private float maxTimer = 1f;
     public bool isJumping = false;
     public float yVel = 0f;
     public Rigidbody2D rb; //rigidbody

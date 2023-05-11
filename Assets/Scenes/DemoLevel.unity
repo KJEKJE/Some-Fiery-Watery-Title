@@ -661,6 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 777056970}
   playerHealth: 15
+  game: {fileID: 1000433856}
 --- !u!1 &973389767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3897,6 +3898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1827603636}
   playerHealth: 15
+  game: {fileID: 1000433856}
 --- !u!114 &1827603644
 MonoBehaviour:
   m_ObjectHideFlags: 0

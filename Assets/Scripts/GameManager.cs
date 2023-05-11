@@ -17,8 +17,18 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.R))
         {
-            Debug.Log("Reloading Scene...");
-            SceneManager.LoadScene("DemoLevel");
+            RestartLevel();
         }
+    }
+
+    public void DeathChecker()
+    {
+        RestartLevel(); //confirms a death/game over
+    }
+
+    private void RestartLevel()
+    {
+        Debug.Log("Reloading Scene...");
+        SceneManager.LoadScene("DemoLevel");
     }
 }

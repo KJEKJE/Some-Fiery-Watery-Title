@@ -24,7 +24,7 @@ public class ShootProjectile : MonoBehaviour
         launchSpeed = 5f; //initial launch speed
         dir = projectileSpawn.rotation.z; //for later?
         //dir = projectileSpawn2.rotation.z; //for later?
-        Debug.Log("Direction of projectile is: " + dir);
+        //Debug.Log("Direction of projectile is: " + dir); checks that the player is facing the right direction. not needed atm.
         chargeTime = 0;
         projectileID = 0; //i.e. fireball
     }
