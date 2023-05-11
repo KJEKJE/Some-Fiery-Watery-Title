@@ -21,11 +21,29 @@ public class Fern : MonoBehaviour
     {
         Debug.Log(collision.name); //what did you hit?
 
-        HealthScript wateryBoi = collision.GetComponent<HealthScript>(); //calls Gate script
+        HealthScript wateryBoi = collision.GetComponent<HealthScript>(); //calls health script from a player
         if (wateryBoi != null)
         {
-            wateryBoi.TakeDamage(2);
-            Debug.Log("Waterform took damage?");
+            string whichPlayer = collision.name;
+
+            if (whichPlayer == "Waterform")
+            {
+                wateryBoi.TakeDamage(2);
+                Debug.Log("Waterform took damage? It hurts! >_<");
+                //play a slurp sound
+            }
+            else if (whichPlayer == "Flare")
+            {
+                wateryBoi.TakeDamage(1);
+                Debug.Log("Flare took damage? Not very effective..");
+                //play a fwoosh sound
+            }
+            else
+            {
+                Debug.Log("umm, either you hit yourself... or they've merged. And you might've just lost.");
+                //play a fizzle sound
+            }
+
         }
 
         Destroy(gameObject); //despawns

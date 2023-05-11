@@ -36,6 +36,34 @@ public class Fireball : MonoBehaviour
             gate.DoorOpened();
         }
 
+        //checking for hit detection of players/enemies
+        HealthScript grassyBoi = collision.GetComponent<HealthScript>(); //calls health script from a player
+
+        if (grassyBoi != null)
+        {
+            string whichPlayer = collision.name;
+
+            if (whichPlayer == "Shanopi_A")
+            {
+                grassyBoi.TakeDamage(3);
+                Debug.Log("Shanopi took damage? It burns! o_o");
+                //play a FWOOSH sound
+            }
+            else if (whichPlayer == "Waterform")
+            {
+                grassyBoi.TakeDamage(0);
+                Debug.Log("Waterform took no damage. You did literally nothing. You warmed him up I guess..?");
+                //play a shloop sound
+            }
+            else
+            {
+                //grassyBoi.TakeDamage(-1); might be fun for gaining fire HP
+                Debug.Log("Hm. Either you hit yourself... or you've merged?");
+                //play a crackling fire sound
+            }
+
+        }
+
         Debug.Log("Damage done from fireball: " + chargeLevel); //determines how much damage that fireball would do to an enemy/player
 
         Destroy(gameObject); //despawns

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bca043d930c1e14984917016bb3d7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fernSpeed: 3
+  fernFullSpeed: 3
   rb: {fileID: 4395314526227647504}
   elemType: grass
   statusEffect: barb

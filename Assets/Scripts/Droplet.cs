@@ -22,9 +22,27 @@ public class Droplet : MonoBehaviour
 
         HealthScript flareBoi = collision.GetComponent<HealthScript>(); //calls Gate script
         if (flareBoi != null)
-        {
-            flareBoi.TakeDamage(2);
-            Debug.Log("Flare took damage?");
+        {            
+            string whichPlayer = collision.name;
+
+            if (whichPlayer == "Shanopi_A")
+            {
+                flareBoi.TakeDamage(2);
+                Debug.Log("Shanopi took damage? It's fine enough ._.");
+                //play a slurp sound
+            }
+            else if (whichPlayer == "Flare")
+            {
+                flareBoi.TakeDamage(4);
+                Debug.Log("Flare took damage? AHHHHHHH >^<;");
+                //play a FIZZLE sound
+            }
+            else
+            {
+                Debug.Log("Hm, either you hit yourself... or you've merged. Hehehe.");
+                //play a bubbly sound
+            }
+
         }
 
         Destroy(gameObject); //despawns

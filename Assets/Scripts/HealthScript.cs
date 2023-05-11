@@ -44,7 +44,16 @@ public class HealthScript : MonoBehaviour
             Debug.Log("Player now has " + playerHealth + " HP left.");
             playerHealth = 0; //sets to 0, is considered ded
             Debug.Log("Player is defeated. " + playerHealth + " HP.");
-            game.DeathChecker(); //checking for death
+
+            if (tag == "Player 1" || tag == "Player 2") //implies one of the players has been defeated.
+            {
+                game.DeathChecker(); //checking for death
+            }
+            else
+            {
+                Destroy(gameObject); //hopefully doesn't cause a break. one way to find out! ^^;
+            }
+            
         }
         else
         {
