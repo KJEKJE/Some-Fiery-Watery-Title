@@ -66,6 +66,8 @@ public class Fireball : MonoBehaviour
 
         Debug.Log("Damage done from fireball: " + chargeLevel); //determines how much damage that fireball would do to an enemy/player
 
+        //area for merging/colliding with a droplet
+
         Destroy(gameObject); //despawns
     }
 

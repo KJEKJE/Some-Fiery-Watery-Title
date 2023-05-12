@@ -45,6 +45,8 @@ public class Droplet : MonoBehaviour
 
         }
 
+        //area for merging/colliding with a fireball
+
         Destroy(gameObject); //despawns
     }
 

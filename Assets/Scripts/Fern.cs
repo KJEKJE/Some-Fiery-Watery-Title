@@ -46,6 +46,8 @@ public class Fern : MonoBehaviour
 
         }
 
+        //area for merging/colliding with another projectile
+
         Destroy(gameObject); //despawns
     }
 
