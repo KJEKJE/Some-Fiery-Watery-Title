@@ -26,6 +26,7 @@ public class MergedProjectile : MonoBehaviour
     {
         //fernSpeed = fernSpeed * itemRef.multiplier;
         mergeDamage = fireballDamage + dropletDamage;
+        mergeSpeed = fireballFullSpeed + dropletFullSpeed;
         rb.velocity = transform.right * mergeSpeed; //temporary
     }
 

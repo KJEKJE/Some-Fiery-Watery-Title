@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7129303645320647079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1437745, y: -2.8697028, z: 0}
+  m_LocalPosition: {x: 5.1437745, y: -2.8697028, z: -0.01}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropletFullSpeed: 10
-  fireballFullSpeed: 10
+  fireballFullSpeed: 5
   fireballDamage: 3
   dropletDamage: 3
   rb: {fileID: 1806120818668190949}
