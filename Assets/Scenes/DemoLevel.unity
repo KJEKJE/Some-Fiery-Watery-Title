@@ -682,6 +682,7 @@ MonoBehaviour:
   rb: {fileID: 777056972}
   player: {fileID: 777056970}
   groundChecker: {fileID: 667068544}
+  LiquidTemp: 4
 --- !u!50 &777056972
 Rigidbody2D:
   serializedVersion: 4
@@ -3998,10 +3999,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5739502507617663936, guid: cf8136a115a455f4e8c4706443e594a5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7129303645320647079, guid: cf8136a115a455f4e8c4706443e594a5, type: 3}
       propertyPath: m_Name
       value: Vapour
@@ -4051,7 +4048,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5739502507617663936, guid: cf8136a115a455f4e8c4706443e594a5, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cf8136a115a455f4e8c4706443e594a5, type: 3}
 --- !u!1 &1651291583
 GameObject:

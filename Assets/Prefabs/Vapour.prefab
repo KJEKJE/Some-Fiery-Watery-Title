@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3456880306354841334}
   - component: {fileID: 1806120818668190949}
   - component: {fileID: 8053275711538251394}
-  - component: {fileID: 5739502507617663936}
   - component: {fileID: -3852596568107010689}
   m_Layer: 0
   m_Name: Vapour
@@ -159,25 +158,6 @@ PolygonCollider2D:
       - {x: 0.03125, y: -0.5}
       - {x: 0.0859375, y: -0.46875}
       - {x: 0.2421875, y: -0.37890625}
---- !u!114 &5739502507617663936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7129303645320647079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f923ba4f6734c4c91f350db2a9561f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireballSpeed: 5
-  isOpen: 0
-  rb: {fileID: 1806120818668190949}
-  elemType: fire
-  statusEffect: burn
-  chargeLevel: 0
-  chargeRef: {fileID: 0}
 --- !u!114 &-3852596568107010689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,3 +177,4 @@ MonoBehaviour:
   rb: {fileID: 1806120818668190949}
   elemType: merged
   statusEffect: explosive
+  mergeFullPower: 0

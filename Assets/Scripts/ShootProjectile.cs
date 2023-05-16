@@ -134,16 +134,32 @@ public class ShootProjectile : MonoBehaviour
                 case 1:
                     Debug.Log("fireball.");
 
-                    Debug.Log("Multiplier: " + multiplier);
+                    //float multiplier = launchSpeed * multiplier;
+                    Debug.Log("It's a fireball! Multiplier: " + multiplier);
 
+
+                    Fireball instance = projectile.GetComponent<Fireball>(); //info for the fireball
+                    instance.chargeLevel = multiplier; //used for determining damage/size/etc.
                     
                     projectile.transform.localScale *= multiplier; //changes fireball size
                     Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
                     projectile.transform.localScale /= multiplier; //resets it back to orignal size
 
-                    //rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
-                    
-                    break;
+                //rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
+
+                //Debug.Log("fern.");
+
+                //Debug.Log("Multiplier: " + multiplier);
+                //float fernSpeed = launchSpeed * multiplier;
+                //Debug.Log(fernSpeed); //confirm pew
+
+                ////projectile.transform.localScale *= multiplier; //changes fern size (will update soon, just for reference.)
+
+                //Fern instance = projectile.GetComponent<Fern>(); //grabs info and sends to projectile?
+                //instance.fernFullSpeed = fernSpeed; //makes the projectile's full speed update with the newly calcukated fern speed
+                //Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation); //launch it lol
+
+                break;
 
 
                 case 2:

@@ -139,7 +139,6 @@ MonoBehaviour:
   rb: {fileID: 6248302821152570018}
   elemType: fire
   statusEffect: burn
-  chargeLevel: 0
-  chargeRef: {fileID: 0}
+  chargeLevel: 1
   mergedProj: {fileID: 7129303645320647079, guid: cf8136a115a455f4e8c4706443e594a5, type: 3}
   mergedSpawn: {fileID: 3661812004610836444}

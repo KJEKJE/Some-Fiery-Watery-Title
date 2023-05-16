@@ -9,8 +9,8 @@ public class Fireball : MonoBehaviour
     public Rigidbody2D rb;
     public string elemType = "fire";
     public string statusEffect = "burn";
-    public float chargeLevel = 0;
-    public ShootProjectile chargeRef; //refers to the components from the player shooting a fireball.
+    public float chargeLevel = 1f;
+    //public ShootProjectile chargeRef; //refers to the components from the player shooting a fireball.
 
     public GameObject mergedProj;
     public Transform mergedSpawn;
@@ -32,7 +32,8 @@ public class Fireball : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name); //what did you hit?
-        
+        float dmgCheck = 0f; //superficial addition, but might help later.
+
         Gate gate = collision.GetComponent<Gate>(); //calls Gate script
         if (gate != null)
         {
@@ -54,26 +55,29 @@ public class Fireball : MonoBehaviour
             //}
             if (collision.tag == "Base Enemy")
             {
-                grassyBoi.TakeDamage(3);
+                grassyBoi.TakeDamage(3 * chargeLevel);
                 Debug.Log("Shanopi took damage? It burns! o_o");
+                dmgCheck = 3f;
                 //play a FWOOSH sound
             }
             else if (whichPlayer == "Waterform")
             {
                 grassyBoi.TakeDamage(0);
                 Debug.Log("Waterform took no damage. You did literally nothing. You warmed him up I guess..?");
+                dmgCheck = 0f;
                 //play a shloop sound
             }
             else
             {
                 //grassyBoi.TakeDamage(-1); might be fun for gaining fire HP
                 Debug.Log("Hm. Either you hit yourself... or you've merged?");
+                //dmgCheck = -1f;
                 //play a crackling fire sound
             }
 
         }
 
-        Debug.Log("Damage done from fireball: " + chargeLevel); //determines how much damage that fireball would do to an enemy/player
+        Debug.Log("Damage done from fireball: " + (chargeLevel * dmgCheck)); //determines how much damage that fireball would do to an enemy/player
 
         //area for merging/colliding with a droplet
         Droplet dripDrip = collision.GetComponent<Droplet>(); //grabs info from droplet
@@ -88,8 +92,9 @@ public class Fireball : MonoBehaviour
             Debug.Log(mergePower); //confirm merge pew
 
             MergedProjectile instance = mergedProj.GetComponent<MergedProjectile>(); //grabs info and sends to projectile?
-            //instance.mergeFullSpeed = mergeSpeed; //makes the projectile's full speed update with the newly calcukated fern speed
-            instance.mergeFullPower = mergePower; //makes the projectile's full speed update with the newly calcukated fern speed
+            //instance.mergeFullSpeed = mergeSpeed; //makes the projectile's full speed update with the newly calculated fern speed
+            instance.mergeFullPower = mergePower; //makes the projectile's full speed update with the newly calculated fern speed
+            instance.fireballFullSpeed = fireballSpeed;
             Instantiate(mergedProj, mergedSpawn.position, mergedSpawn.rotation); //launch it lol
         }
 
