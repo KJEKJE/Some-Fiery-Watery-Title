@@ -21,6 +21,7 @@ public class MergedProjectile : MonoBehaviour
 
     private int mergeDamage;
     private float mergeSpeed;
+    public float mergeFullPower = 3f;
 
     void Start()
     {

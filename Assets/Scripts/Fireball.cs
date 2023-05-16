@@ -12,6 +12,9 @@ public class Fireball : MonoBehaviour
     public float chargeLevel = 0;
     public ShootProjectile chargeRef; //refers to the components from the player shooting a fireball.
 
+    public GameObject mergedProj;
+    public Transform mergedSpawn;
+
 
 
     void Start()
@@ -73,6 +76,22 @@ public class Fireball : MonoBehaviour
         Debug.Log("Damage done from fireball: " + chargeLevel); //determines how much damage that fireball would do to an enemy/player
 
         //area for merging/colliding with a droplet
+        Droplet dripDrip = collision.GetComponent<Droplet>(); //grabs info from droplet
+        if (dripDrip != null)
+        {
+            Debug.Log("collided with droplet?");
+
+            Debug.Log("Multiplier: " + chargeLevel); //identifies what level the fireball/droplet is at
+            float mergePower = 3 /*fireballDamage*/ * chargeLevel;
+            //float mergeSpeed = 3 /*fireballSpeed*/ * chargeLevel;
+
+            Debug.Log(mergePower); //confirm merge pew
+
+            MergedProjectile instance = mergedProj.GetComponent<MergedProjectile>(); //grabs info and sends to projectile?
+            //instance.mergeFullSpeed = mergeSpeed; //makes the projectile's full speed update with the newly calcukated fern speed
+            instance.mergeFullPower = mergePower; //makes the projectile's full speed update with the newly calcukated fern speed
+            Instantiate(mergedProj, mergedSpawn.position, mergedSpawn.rotation); //launch it lol
+        }
 
         Destroy(gameObject); //despawns
     }
