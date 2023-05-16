@@ -25,7 +25,7 @@ public class Droplet : MonoBehaviour
         {            
             string whichPlayer = collision.name;
 
-            if (whichPlayer == "Shanopi_A")
+            if (collision.tag == "Base Enemy")/*(whichPlayer == "Shanopi_A")*/ //was the previous code
             {
                 flareBoi.TakeDamage(2);
                 Debug.Log("Shanopi took damage? It's fine enough ._.");

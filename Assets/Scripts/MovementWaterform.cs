@@ -15,6 +15,7 @@ public class MovementWaterform : MonoBehaviour
     public GameObject player;
     public GameObject groundChecker;
     public SortingLayer sortLayer;
+    public int LiquidTemp = 4;
 
     // Start is called before the first frame update
     void Start()

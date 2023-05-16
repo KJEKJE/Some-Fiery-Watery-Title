@@ -37,9 +37,9 @@ public class MergedProjectile : MonoBehaviour
         HealthScript mergeBoi = collision.GetComponent<HealthScript>(); //calls health script from a player
         if (mergeBoi != null)
         {
-            string whichPlayer = collision.name;
+            //string whichPlayer = collision.name;
 
-            if (whichPlayer == "Shanopi_A")
+            if (collision.tag == "Base Enemy") /*(whichPlayer == "Shanopi_A")*///was the previous code for one enemy only
             {
                 mergeBoi.TakeDamage(mergeDamage);
                 Debug.Log("OHHHHHKAY that'll hurt ^^;");

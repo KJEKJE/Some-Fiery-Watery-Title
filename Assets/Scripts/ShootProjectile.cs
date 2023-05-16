@@ -145,6 +145,7 @@ public class ShootProjectile : MonoBehaviour
                     
                     break;
 
+
                 case 2:
                     Debug.Log("droplet.");
 

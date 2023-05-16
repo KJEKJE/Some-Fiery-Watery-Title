@@ -43,7 +43,13 @@ public class Fireball : MonoBehaviour
         {
             string whichPlayer = collision.name;
 
-            if (whichPlayer == "Shanopi_A")
+            //if (whichPlayer == "Shanopi_A")
+            //{
+            //    grassyBoi.TakeDamage(3);
+            //    Debug.Log("Shanopi took damage? It burns! o_o");
+            //    //play a FWOOSH sound
+            //}
+            if (collision.tag == "Base Enemy")
             {
                 grassyBoi.TakeDamage(3);
                 Debug.Log("Shanopi took damage? It burns! o_o");
