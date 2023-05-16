@@ -10,7 +10,7 @@ public class ShootProjectile : MonoBehaviour
     public GameObject projectile; //fireball
     public GameObject projectile2; //droplet
     public int projectileID;
-    public float launchSpeed = 0f;
+    public float launchSpeed = 5f;
     public float xSin;
     public float ySin; //sohcahtoa at some point
     public float dir;
@@ -132,7 +132,7 @@ public class ShootProjectile : MonoBehaviour
             switch (projID)
             {
                 case 1:
-                    Debug.Log("fireball.");
+                    //Debug.Log("fireball.");
 
                     //float multiplier = launchSpeed * multiplier;
                     Debug.Log("It's a fireball! Multiplier: " + multiplier);
@@ -146,8 +146,27 @@ public class ShootProjectile : MonoBehaviour
                     projectile.transform.localScale /= multiplier; //resets it back to orignal size
 
                 //rb.velocity = new Vector2(launchSpeed, 0); //temporary launch
+                                
+                break;
 
-                //Debug.Log("fern.");
+
+                case 2:
+                    //Debug.Log("droplet.");
+
+                    Debug.Log("It's a droplet! Multiplier: " + multiplier);
+                    float aquaDist = launchSpeed * multiplier;
+                    Debug.Log(aquaDist); //confirm pew
+                                         //projectile.transform.localScale *= multiplier; //changes fireball size
+
+                    Droplet instance2 = projectile2.GetComponent<Droplet>();
+                    instance2.dropletSpeed = aquaDist;
+                    Instantiate(projectile2, projectileSpawn.position, projectileSpawn.rotation);
+                    //projectile.transform.localScale /= multiplier; //resets it back to orignal size
+
+
+                    //projectile2.transform.position = new Vector2(aquaDist, 0); //temporary launch
+
+                    //Debug.Log("fern.");
 
                 //Debug.Log("Multiplier: " + multiplier);
                 //float fernSpeed = launchSpeed * multiplier;
@@ -158,22 +177,6 @@ public class ShootProjectile : MonoBehaviour
                 //Fern instance = projectile.GetComponent<Fern>(); //grabs info and sends to projectile?
                 //instance.fernFullSpeed = fernSpeed; //makes the projectile's full speed update with the newly calcukated fern speed
                 //Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation); //launch it lol
-
-                break;
-
-
-                case 2:
-                    Debug.Log("droplet.");
-
-                    Debug.Log("Multiplier: " + multiplier);
-                    float aquaDist = launchSpeed * multiplier;
-                    Debug.Log(aquaDist); //confirm pew
-                                         //projectile.transform.localScale *= multiplier; //changes fireball size
-                    Instantiate(projectile2, projectileSpawn.position, projectileSpawn.rotation);
-                    //projectile.transform.localScale /= multiplier; //resets it back to orignal size
-
-
-                    //projectile2.transform.position = new Vector2(aquaDist, 0); //temporary launch
 
                     break;
 

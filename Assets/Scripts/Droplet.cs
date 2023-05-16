@@ -9,11 +9,13 @@ public class Droplet : MonoBehaviour
     public Rigidbody2D rb;
     public string elemType = "water";
     public string statusEffect = "stun";
+    //note to add a stun chance based off speed of projectile.
 
     void Start()
     {
         //dropletSpeed = GetComponent<ShootFireball>;
         rb.velocity = transform.right * dropletSpeed; //temporary
+        //rb.gravityScale = dropletSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
