@@ -14,7 +14,7 @@ public class MouseLookAtScript : MonoBehaviour
     void Update()
     {
         Vector3 targetDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float flareAngle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg) /*- 90f*/; //covers the direction Flare is facing
+        float flareAngle = (Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg) + 90f; //covers the direction Flare is facing
         transform.rotation = Quaternion.AngleAxis(flareAngle, Vector3.forward);
     }
 }

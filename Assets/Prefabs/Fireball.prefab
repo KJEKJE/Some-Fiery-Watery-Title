@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.8867924, g: 0.39066803, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: afb49d7c44133f24a96e8f84741409e2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -139,6 +139,6 @@ MonoBehaviour:
   rb: {fileID: 6248302821152570018}
   elemType: fire
   statusEffect: burn
-  chargeLevel: 1
+  chargeLevel: 4
   mergedProj: {fileID: 7129303645320647079, guid: cf8136a115a455f4e8c4706443e594a5, type: 3}
   mergedSpawn: {fileID: 3661812004610836444}
