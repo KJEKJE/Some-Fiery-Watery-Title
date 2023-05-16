@@ -100,6 +100,7 @@ public class MovementShanopi : MonoBehaviour
 
                 Fern instance = projectile.GetComponent<Fern>(); //grabs info and sends to projectile?
                 instance.fernFullSpeed = fernSpeed; //makes the projectile's full speed update with the newly calcukated fern speed
+                instance.fernSpikeDmg = (multiplier - 1f); //higher hits will deal base spike PLUS the multiplier, essentially being an adder rather than a multiplier.
                 Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation); //launch it lol
 
                 //projectile.transform.localScale /= multiplier; //resets it back to orignal size

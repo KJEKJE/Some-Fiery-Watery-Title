@@ -10,7 +10,9 @@ public class Fireball : MonoBehaviour
     public string elemType = "fire";
     public string statusEffect = "burn";
     public float chargeLevel = 1f;
-    //public ShootProjectile chargeRef; //refers to the components from the player shooting a fireball.
+    //public float burnChance = 2f; //note to add a burn chance based off size of projectile. will be a base 2/10 burn rate.
+
+    //public ShootProjectile chargeRef; //refers to the components from the player shooting a fireball. not needed now.
 
     public GameObject mergedProj;
     public Transform mergedSpawn;
