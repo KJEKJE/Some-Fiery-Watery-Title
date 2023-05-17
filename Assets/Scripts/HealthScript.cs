@@ -51,6 +51,12 @@ public class HealthScript : MonoBehaviour
             }
             else
             {
+                if (tag == "Base Enemy") //implies one of the players has been defeated.
+                {
+                    int enemyScoreValue = 10; //will be standardised in future. base Shanopi give 10 points for now.
+
+                    game.ScoreUpdate(enemyScoreValue);
+                }
                 Destroy(gameObject); //hopefully doesn't cause a break. one way to find out! ^^;
             }
             

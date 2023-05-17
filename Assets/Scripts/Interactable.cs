@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public GameManager gameM;
+    public int ScoreValue = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
