@@ -28,6 +28,11 @@ public class ElemergeController : MonoBehaviour
 
     public HideOrShowObject shardRef;
 
+
+    public float sizeVel = 0f; //used to determine 'jumping in 3D space'
+    public bool is3DGrounded = true;
+    public bool is3DJumping = false;
+
     //for ref:
     //projID 1 = scald
     //projID 2 = perfect merge
@@ -50,8 +55,32 @@ public class ElemergeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //fireball//        
-        if (Input.GetKey(KeyCode.M)) //charges mergeball for now
+        if (Input.GetKeyDown(KeyCode.Space) && is3DJumping != true /*&& isWaterformGrounded*/) //if the up arrow is pressed, waterform hasn't jumped yet, and he's grounded...
+        {
+            verticalMove = Input.GetAxis("Vertical");
+            //rb.velocity = new Vector2(horizontalMove * waterformSpeed, verticalMove * waterformSpeed);
+            is3DJumping = true;
+            sizeVel = 0.5f; //sets the height that it'll change by
+            timer = 0; //trying again
+            mergePlayer.transform.position = new Vector3(mergePlayer.transform.position.x, mergePlayer.transform.position.y, -0.1f); //resets floor
+            mergePlayer.transform.position += new Vector3(0, 0, -sizeVel);
+            //rb.velocity = new Vector2(horizontalMove * mergeSpeed, sizeVel); //boing.
+
+            is3DGrounded = false;//he's now in the air
+
+            Debug.Log("pressed 3D space."); //register jump!
+        }
+
+        //if (is3DGrounded) //i.e. hit the ground now
+        //{                       
+        //    sizeVel = 0f;
+        //    mergePlayer.transform.position = new Vector3(0, 0, -0.1f); //resets floor
+        //    mergePlayer.transform.localScale = new Vector3(0.9f, 0.9f, 1f); //gives the illusion of scale.
+        //}
+      
+
+            //fireball//        
+        if (Input.GetKey(KeyCode.M) || Input.GetMouseButton(0)) //charges mergeball for now
         {
             if (projectile != null) //is a mergeball on this character?
             {
@@ -67,7 +96,7 @@ public class ElemergeController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.M) || Input.GetMouseButtonUp(0))
         {
             Debug.Log("Power timer: " + chargeTime); //calculates fireball
 
@@ -104,6 +133,45 @@ public class ElemergeController : MonoBehaviour
             shardRef.ShowCharacter(); //shows the shard to toggle off.
         }
     }
+
+    //JUMPING//
+    void FixedUpdate()
+    {
+
+        //JUMPING IN THE AIR//
+        if (is3DJumping == true || is3DGrounded == false) //while in the air :D
+        {
+            rb.isKinematic = true;            
+            if (sizeVel > -0.1f)
+            {
+                sizeVel = sizeVel - 0.02f; //decelerating in the air...
+            }
+            else if (sizeVel <= -0.1f)
+            {
+                sizeVel = -1f;
+                Debug.Log("max falling!"); //still falling...
+            }
+
+            mergePlayer.transform.position += new Vector3(0, 0, -sizeVel);
+            mergePlayer.transform.localScale += new Vector3(sizeVel, sizeVel, 0); //gives the illusion of scale.
+
+            if (mergePlayer.transform.position.z >= -0.2)
+            {
+                is3DGrounded = true;
+                is3DJumping = false;
+                sizeVel = 0f;
+                mergePlayer.transform.position = new Vector3(mergePlayer.transform.position.x, mergePlayer.transform.position.y, -0.1f); //resets floor
+                mergePlayer.transform.localScale = new Vector3(0.9f, 0.9f, 1f); //gives the illusion of scale.
+                rb.isKinematic = false;
+            }
+            timer += Time.deltaTime; //checks for how long
+        }
+
+
+    }
+
+
+
 
     //pewpew
     private void MergePew(int projID)

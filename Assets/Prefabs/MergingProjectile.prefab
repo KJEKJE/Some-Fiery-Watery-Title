@@ -179,8 +179,8 @@ MonoBehaviour:
   statusEffect: explosive
   scaldFullSpeed: 12
   scaldDamage: 1
-  vapourFullSpeed: 18
-  vapourDamage: 2
+  vapourFullSpeed: 12
+  vapourDamage: 1
   steamFullSpeed: 12
   steamDamage: 1
   mergeFullPower: 6
