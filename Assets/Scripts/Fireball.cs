@@ -14,6 +14,10 @@ public class Fireball : MonoBehaviour
 
     //public ShootProjectile chargeRef; //refers to the components from the player shooting a fireball. not needed now.
 
+    public Sprite scaldImage; //fireball needs these traits to make a merge
+    public Sprite vapourImage;
+    public Sprite steamImage;
+
     public GameObject mergedProj;
     public Transform mergedSpawn;
 
@@ -97,7 +101,38 @@ public class Fireball : MonoBehaviour
             //instance.mergeFullSpeed = mergeSpeed; //makes the projectile's full speed update with the newly calculated fern speed
             instance.mergeFullPower = mergePower; //makes the projectile's full speed update with the newly calculated fern speed
             instance.fireballFullSpeed = fireballSpeed;
+            float size = 1;
+
+            switch (chargeLevel)
+            {
+                case 1:
+                    instance.thisImage = scaldImage;
+                    size = 1;
+                    break;
+                
+                case 2:
+                    instance.thisImage = vapourImage;
+                    size = 1;
+                    break;
+                
+                case 3:
+                    instance.thisImage = vapourImage;
+                    size = 2;
+                    break;
+                    
+                case 4:
+                    instance.thisImage = steamImage;
+                    size = 1;
+                    break;
+
+                default:
+
+                    break;
+            }
+
+            mergedProj.transform.localScale *= size; //scale change
             Instantiate(mergedProj, mergedSpawn.position, mergedSpawn.rotation); //launch it lol
+            mergedProj.transform.localScale /= size; //scale change
         }
 
         Destroy(gameObject); //despawns

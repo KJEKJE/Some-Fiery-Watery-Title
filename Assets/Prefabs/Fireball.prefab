@@ -139,6 +139,9 @@ MonoBehaviour:
   rb: {fileID: 6248302821152570018}
   elemType: fire
   statusEffect: burn
-  chargeLevel: 1
-  mergedProj: {fileID: 7129303645320647079, guid: cf8136a115a455f4e8c4706443e594a5, type: 3}
+  chargeLevel: 2
+  scaldImage: {fileID: 21300000, guid: 6fc432be5888e794ca24ba00a775cd45, type: 3}
+  vapourImage: {fileID: 21300000, guid: 8c10f18f654beec4dbfc7c0828253302, type: 3}
+  steamImage: {fileID: 21300000, guid: 7e40b644a7800fc44a99af06e7659c1a, type: 3}
+  mergedProj: {fileID: 7732544055655558176, guid: e582248339fad9546980ecb7fa6a8c9b, type: 3}
   mergedSpawn: {fileID: 3661812004610836444}

@@ -59,7 +59,7 @@ public class ElemergeController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Passed ok. Shanopi's shooting? ^^");
+                Debug.Log("Passed ok. MERGE SHOOTING. RUN. o_o");
             }
 
         }
