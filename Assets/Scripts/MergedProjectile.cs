@@ -19,12 +19,41 @@ public class MergedProjectile : MonoBehaviour
     public string elemType = "merged"; //will change eventually
     public string statusEffect = "explosive"; //likely to keep?
 
+    public float scaldFullSpeed;
+    public float scaldDamage;
+    
+    public float vapourFullSpeed;
+    public float vapourDamage;
+
+    public float steamFullSpeed;
+    public float steamDamage;
+
     private int mergeDamage;
     private float mergeSpeed;
     public float mergeFullPower = 3f;
 
+    //public Sprite scaldImage;
+    //public Sprite vapourImage;
+    //public Sprite steamImage;
+    public Sprite thisImage;
+
+    //public SpriteRenderer testing;
+
     void Start()
     {
+        
+        //GetComponent<SpriteRenderer>();
+        //string aaah = GetComponent<Sprite>().name;
+
+        Debug.Log("Yes: " + GetComponent<SpriteRenderer>().sprite);
+        //Sprite changeSprite = new SpriteRenderer().sprite; 
+        //GetComponent<SpriteRenderer>().sprite = vapourImage;
+        GetComponent<SpriteRenderer>().sprite = thisImage;
+
+        Debug.Log("Yes: " + GetComponent<SpriteRenderer>().sprite);
+
+        //testing.sprite = vapourImage;
+
         //fernSpeed = fernSpeed * itemRef.multiplier;
         mergeDamage = fireballDamage + dropletDamage;
         mergeSpeed = fireballFullSpeed + dropletFullSpeed;
