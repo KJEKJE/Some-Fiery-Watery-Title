@@ -11,6 +11,8 @@ TagManager:
   - Gate
   - Goal Zone
   - Shard
+  - Bushes
+  - Grassland
   layers:
   - Default
   - TransparentFX

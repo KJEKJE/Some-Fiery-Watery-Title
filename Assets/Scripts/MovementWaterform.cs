@@ -13,7 +13,10 @@ public class MovementWaterform : MonoBehaviour
     public float yVel = 0f;
     public Rigidbody2D rb; //rigidbody
     public GameObject player;
-    public GameObject groundChecker;
+
+    //public GroundChecker checkingForGround;
+    public bool isWaterformGrounded;
+
     public SortingLayer sortLayer;
     public int LiquidTemp = 4;
 
@@ -33,14 +36,14 @@ public class MovementWaterform : MonoBehaviour
             horizontalMove = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(horizontalMove * waterformSpeed, verticalMove * waterformSpeed/*rb.velocity.y*/);
             timer = 0.5f;
-            Debug.Log("moving left?"); //register left!
+            //Debug.Log("moving left?"); //register left!
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             horizontalMove = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(horizontalMove * waterformSpeed, verticalMove * waterformSpeed/*rb.velocity.y*/);
             timer = 0.5f;
-            Debug.Log("moving right?"); //register left!
+            //Debug.Log("moving right?"); //register right!
         }
         else
         {
@@ -48,7 +51,7 @@ public class MovementWaterform : MonoBehaviour
             rb.velocity = new Vector2(horizontalMove * waterformSpeed, /*verticalMove * yVel*/ 0); //should be = to 0,0
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isJumping != true) //TO BE CHANGED//
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isJumping != true /*&& isWaterformGrounded*/) //if the up arrow is pressed, waterform hasn't jumped yet, and he's grounded...
         {
             verticalMove = Input.GetAxis("Vertical");
             //rb.velocity = new Vector2(horizontalMove * waterformSpeed, verticalMove * waterformSpeed);
@@ -56,18 +59,23 @@ public class MovementWaterform : MonoBehaviour
             yVel = 5f; //sets the height that it'll change by
             timer = 0; //trying again
             rb.velocity = new Vector2(horizontalMove * waterformSpeed, yVel); //boing.
-            Debug.Log("pressed jump."); //register left!
+
+            isWaterformGrounded = false;//he's now in the air
+
+            Debug.Log("pressed jump."); //register jump!
         }
 
-        if (Input.GetKey(KeyCode.DownArrow)) //TO BE CHANGED//
-        {
-            verticalMove = Input.GetAxis("Vertical");
-            isJumping = false; //for now.
-            yVel = 0f;
-            rb.velocity = new Vector2(horizontalMove * waterformSpeed, verticalMove * waterformSpeed);
-            timer = 0.5f;
-            Debug.Log("moving down?"); //register left!
-        }
+        //if (Input.GetKey(KeyCode.DownArrow)) //TO BE CHANGED//
+        //{
+        //    verticalMove = Input.GetAxis("Vertical");
+        //    isJumping = false; //for now.
+        //    yVel = 0f;
+        //    rb.velocity = new Vector2(horizontalMove * waterformSpeed, verticalMove * waterformSpeed);
+        //    timer = 0.5f;
+        //    Debug.Log("moving down?"); //register left!
+        //}
+
+
     }
 
         //JUMPING//
@@ -75,7 +83,7 @@ public class MovementWaterform : MonoBehaviour
      {
         
         //JUMPING IN THE AIR//
-        if (isJumping == true) //while in the air :D
+        if (isJumping == true || isWaterformGrounded == false) //while in the air :D
         {
             if (yVel > -10f)
             {
