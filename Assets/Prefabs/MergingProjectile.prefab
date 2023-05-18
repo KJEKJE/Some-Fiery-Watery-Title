@@ -179,9 +179,9 @@ MonoBehaviour:
   statusEffect: explosive
   scaldFullSpeed: 12
   scaldDamage: 1
-  vapourFullSpeed: 12
-  vapourDamage: 1
+  vapourFullSpeed: 18
+  vapourDamage: 2
   steamFullSpeed: 12
   steamDamage: 1
-  mergeFullPower: 12
-  thisImage: {fileID: 21300000, guid: 7e40b644a7800fc44a99af06e7659c1a, type: 3}
+  mergeFullPower: 6
+  thisImage: {fileID: 21300000, guid: 6fc432be5888e794ca24ba00a775cd45, type: 3}

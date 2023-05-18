@@ -9,6 +9,9 @@ public class ZapShard : MonoBehaviour
 
     public bool aquaCharged = false;
     public bool fireCharged = false;
+
+    public HideOrShowObject Player1, Player2, PlayerX; //the respective mergers
+    public GameObject zapShard;
     //public Transform whoCollectedMe;
     //public Interactable shardCollector;
 
@@ -62,6 +65,7 @@ public class ZapShard : MonoBehaviour
         
         if (Input.GetKeyUp(KeyCode.E)) //drops item
         {
+            zapShard.SetActive(true); //just in-case. won't do much I know
             //resets parameters
             shardHolder = null;
 
@@ -69,11 +73,23 @@ public class ZapShard : MonoBehaviour
             fireCharged = false;
 
             isCollected = false;
+
+            Player1.ShowCharacter();
+            Player2.ShowCharacter();
+
+            PlayerX.HideCharacter();
+            //zapShard.SetActive(true);
             gameObject.transform.parent = null; //detaches from user
+
 
             Debug.Log("Shard has been dropped. Starting cooldown.");
             cooldown = 3f;
         }
+
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    gameObject.transform.parent = null; //detaches from user
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,6 +105,36 @@ public class ZapShard : MonoBehaviour
                 Debug.Log("Key has been collected. Fire Charged.");
                 //shardHolder = collision;
 
+                if (fireCharged && aquaCharged)
+                {
+                    //start a merge!
+                    cooldown = 3f;
+                    zapShard.transform.parent = null; //detaches from user
+                    shardHolder = null;
+
+                    aquaCharged = false;
+                    fireCharged = false;
+                    //gameObject.transform.SetParent(null); //detaches from user
+                    //gameObject.transform.SetParent(null); //detaches from user
+                    Debug.Log("detaching...");
+                    isCollected = false;
+                    //gameObject.transform.parent = null; //detaches from user
+
+                    
+                    //zapShard.SetActive(false);
+                    Debug.Log("merge?");
+
+                    PlayerX.ShowCharacter();
+                    PlayerX.transform.position = zapShard.transform.position;
+
+                    Player1.HideCharacter();
+                    Player2.HideCharacter();
+
+                    zapShard.SetActive(false);
+
+                }
+                else
+                {
                 shardHolder = collision.GetComponent<Transform>().GetChild(3);
                 Debug.Log(shardHolder);
 
@@ -100,6 +146,8 @@ public class ZapShard : MonoBehaviour
                 isCollected = true;
                 //plays a zap! sound
 
+                }
+
                 //Destroy(gameObject); //despawns after touching Flare or Waterform
             }
             else if (collision.tag == "Player 2") //Waterform
@@ -107,6 +155,33 @@ public class ZapShard : MonoBehaviour
                 aquaCharged = true;
                 Debug.Log("Key has been collected. Aqua Charged.");
 
+                if (fireCharged && aquaCharged)
+                {
+                    //start a merge!
+                    cooldown = 3f;
+                    gameObject.transform.SetParent(null); //detaches from user
+                    //gameObject.transform.SetParent(null); //detaches from user
+                    shardHolder = null;
+
+                    aquaCharged = false;
+                    fireCharged = false;
+                    Debug.Log("detaching...");
+                    isCollected = false;
+                    //zapShard.SetActive(false);
+                    Debug.Log("merge?");
+
+                    PlayerX.ShowCharacter();
+                    PlayerX.transform.position = zapShard.transform.position;
+                    
+
+                    Player1.HideCharacter();
+                    Player2.HideCharacter();
+
+                    zapShard.SetActive(false);
+
+                }
+                else
+                {
                 shardHolder = collision.GetComponent<Transform>().GetChild(3);
                 Debug.Log(shardHolder);
 
@@ -116,6 +191,8 @@ public class ZapShard : MonoBehaviour
                 //plays a zap! sound
 
                 //Destroy(gameObject); //despawns after touching Flare or Waterform
+
+                }
             }
             else
             {

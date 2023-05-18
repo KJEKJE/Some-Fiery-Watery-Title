@@ -26,6 +26,8 @@ public class ElemergeController : MonoBehaviour
     public Sprite vapourImage;
     public Sprite steamImage;
 
+    public HideOrShowObject shardRef;
+
     //for ref:
     //projID 1 = scald
     //projID 2 = perfect merge
@@ -42,6 +44,7 @@ public class ElemergeController : MonoBehaviour
         dir = projectileSpawn.rotation.z; //for later     
         chargeTime = 0;
         projectileID = 0; //i.e. multiple projectiles
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -94,6 +97,11 @@ public class ElemergeController : MonoBehaviour
             chargeTime = 0;
             projectileID = 0;
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) //drops item
+        {
+            shardRef.ShowCharacter(); //shows the shard to toggle off.
         }
     }
 
